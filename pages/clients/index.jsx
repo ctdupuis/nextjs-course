@@ -12,7 +12,14 @@ export default function index() {
         <h1>List of Clients</h1>
 
         <ul>
-          {clients.map(c => <li key={c.id}><Link href={`/clients/${c.id}`}>{c.name}</Link></li>)}
+          {clients.map(c => <li key={c.id}>
+            <Link href={{
+                pathname: '/clients/[id]',
+                query: { id: c.id }
+            }}>
+              {c.name}
+            </Link>
+          </li>)}
         </ul>
     </div>
   )
